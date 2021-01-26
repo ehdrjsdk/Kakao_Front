@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import LoginForm from './FormComponents/LoginForm';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  /*
+    state = {
+      userInfo: {
+        id : 0,
+        name:"test",
+        password:"01030187674"
+      },
+    }*/
+
+    render() {
+      return(
+        <div>
+        <LoginForm />
+        </div> 
+      );
+    }
 }
 
 export default App;

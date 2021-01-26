@@ -1,3 +1,4 @@
+/*
 const proxy = require('http-proxy-middleware');
 
 module.exports = function (app) {
@@ -6,4 +7,4 @@ module.exports = function (app) {
             target: 'http://192.168.0.38:3002'
         })
     );
-};
+};*/
