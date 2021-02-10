@@ -1,26 +1,16 @@
-import axios_Facade from '../axios/axios_Facade';
 import React from 'react';
+import axios_Facade from '../axios/axios_Facade';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
 
-/*
-export function getTitle(id) {
-    return axios.get('http://192.168.0.38:5000/api/users/'+ id); 
-}
-*/
 let axios_open = new axios_Facade();
 
-class LoginForm extends React.Component {
-
+class RegisterForm extends React.Component 
+{
     state = {
         userEmail : '',
         userPassword : '',
+        userName : '',
         userINfomation : '',
-    }
-
-    goToList = () =>
-    {
-        this.props.history.push('/Listup');
     }
 
     handleChange = (e) =>    {
@@ -33,17 +23,16 @@ class LoginForm extends React.Component {
         e.preventDefault();
         var temp;
         var posttemp;
-        
         temp = axios_open.getData('');
-        posttemp = axios_open.PostData('login',this.state.userEmail,this.state.userPassword,null);
+        posttemp = axios_open.PostData('register',this.state.userEmail,this.state.userPassword, this.state.userName);
         
         console.log(JSON.stringify(posttemp));
-        /*
+        
         temp.then(({data}) => {
             this.setState({
                 userINfomation : data
             })
-        });*/
+        });
     }
 
     render() {
@@ -60,15 +49,19 @@ class LoginForm extends React.Component {
                 />
 
                 <input
+                placeholder="Name"
+                value={this.state.userName}
+                onChange={this.handleChange}
+                name="userName"
+                />
+
+                <input
                 placeholder="Password"
                 value={this.state.userPassword}
                 onChange={this.handleChange}
                 name="userPassword"
                 />
-                <button type="submit" onClcik={this.goToList}>로그인</button>
-                <Link to="./Register">
-                    <button>회원가입</button>
-                </Link>
+                <button type="submit" onClick={ () => {this.props.history.goBack()}} >회원가입</button>
                 <div>{this.state.userINfomation}</div>
             </form>
             
@@ -77,4 +70,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default withRouter(LoginForm);
+export default RegisterForm;
