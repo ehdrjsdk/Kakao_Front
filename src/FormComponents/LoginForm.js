@@ -18,8 +18,12 @@ class LoginForm extends React.Component {
         userINfomation : '',
     }
 
-    goToList = () =>
-    {
+    goToList = () => {
+        var posttemp;
+
+        posttemp = axios_open.PostData('login',this.state.userEmail,this.state.userPassword,null);
+        console.log(JSON.stringify(posttemp));
+
         this.props.history.push('/Listup');
     }
 
@@ -31,19 +35,6 @@ class LoginForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        var temp;
-        var posttemp;
-        
-        temp = axios_open.getData('');
-        posttemp = axios_open.PostData('login',this.state.userEmail,this.state.userPassword,null);
-        
-        console.log(JSON.stringify(posttemp));
-        /*
-        temp.then(({data}) => {
-            this.setState({
-                userINfomation : data
-            })
-        });*/
     }
 
     render() {
@@ -65,7 +56,7 @@ class LoginForm extends React.Component {
                 onChange={this.handleChange}
                 name="userPassword"
                 />
-                <button type="submit" onClcik={this.goToList}>로그인</button>
+                <button onClick={this.goToList}>로그인</button>
                 <Link to="./Register">
                     <button>회원가입</button>
                 </Link>

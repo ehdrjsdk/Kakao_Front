@@ -4,6 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
+.gradle
+.idea
+node_modules/
+out/
+jsdoc.conf
+docs/
 
 # testing
 /coverage

@@ -17,7 +17,7 @@ class axios_Facade extends React.Component {
     }
 
     PostData(input_Url, user_Id, user_Password, user_Name) {
-        return axios.post('http://192.168.0.38:5000/api/users/'+ input_Url, {email : user_Id, password : user_Password, name : user_Name}).then(({data}) => { console.log(JSON.stringify(data));});
+        return axios.post('http://192.168.0.38:5000/api/users/'+ input_Url, {email : user_Id, password : user_Password, name : user_Name}, {withCredentials: true}).then(({data}) => { console.log(JSON.stringify(data));});
     }
 
 }

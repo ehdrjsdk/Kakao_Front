@@ -19,7 +19,7 @@ class Routes extends React.Component {
           <Route exact path="/Listup" component={ListupForm} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
 

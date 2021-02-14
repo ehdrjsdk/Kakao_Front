@@ -1,7 +1,6 @@
 import axios_Facade from '../axios/axios_Facade';
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { withRouter } from 'react-router-dom';
 /*
 export function getTitle(id) {
     return axios.get('http://192.168.0.38:5000/api/users/'+ id); 
@@ -34,12 +33,15 @@ class ListupForm extends React.Component {
         e.preventDefault();
     }
 
+    gotoLogout = () => {
+        this.props.history.push('/');
+    }
+
     render() {
    return (
             <div>
-                
             <form onSubmit={this.handleSubmit}>
-            <button type="submit">로그아웃</button>
+            <button onClick={this.gotoLogout}>로그아웃</button>
             <div>{this.state.userINfomation}</div>
             </form>
             </div>
@@ -47,4 +49,4 @@ class ListupForm extends React.Component {
     }
 }
 
-export default ListupForm;
+export default withRouter(ListupForm);
